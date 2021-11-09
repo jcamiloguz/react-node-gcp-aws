@@ -18,26 +18,22 @@ spec:
         app: react-webapp
     spec:
       containers:
-      - image: useradm.azurecr.io/jcamiloguz/user-adm
+      - image: gcr.io/PROJECT_ID/IMAGE:TAG
         name: webapp
         imagePullPolicy: Always
         resources: {}
+        env:
+        - name: DB_HOST
+          value: "aws-gcp-db.c5z6obx5ievu.us-east-2.rds.amazonaws.com"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PSS
+          value: "aws-gcp-db"
+        - name: DB_DB
+          value: "app"
+        - name: PORT
+          value: "9000"
         ports:
-          - containerPort: 80 
+          - containerPort: 9000 
 status: {}
 
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: react-webapp
-  labels:
-    run: react-webapp
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-  selector:
-    app: react-webapp
-  type: LoadBalancer
