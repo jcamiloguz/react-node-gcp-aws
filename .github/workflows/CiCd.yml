@@ -15,4 +15,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        tags: ${{ github.repository }}:${{ github.sha }}
+        tags: ${{ github.username }}/${{ github.repository }}:${{ github.sha }}
+        push: true
