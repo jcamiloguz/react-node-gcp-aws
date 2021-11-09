@@ -15,5 +15,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        tags: ${{ github.repository }}:${{ github.sha }}
+        tags: ${{ github.repository }}:latest
         push: true
