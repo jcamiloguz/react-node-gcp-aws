@@ -13,7 +13,7 @@ export const Header = () => {
 
     return(
         <div style={headerStyle}>
-            <h1>Multicloud React/Node/SQL app</h1>
+            <h1>Super Multicloud React/Node/SQL app</h1>
         </div>
     )
 }
