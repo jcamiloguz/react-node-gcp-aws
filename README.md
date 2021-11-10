@@ -59,5 +59,26 @@ A  continuación se presenta una guía paso a paso para llevar a cabo las siguie
 - Este paso es similar al [punto 2](https://github.com/jcamiloguz/react-node-gcp-aws#2-crear-cuenta-en-google-cloud-platform-gcp) de la guía anterior, pero esta vez se creará una cuenta de capa gratuita accediendo a la [plataforma de Amazon Web Services](https://www.google.com/aclk?sa=L&ai=DChcSEwjEoeXxpo70AhVCsYYKHQbCDgMYABABGgJ2dQ&ae=2&sig=AOD64_2XCxJ0ut9nQFwPSdHuyIbp_1UHNw&q&adurl&ved=2ahUKEwjs-tzxpo70AhXiTDABHa3LA1UQ0Qx6BAgDEAE), al dar click sobre **crear una cuenta gratuita** se desplegará la siguiente interfaz para comenzar con la creación de la cuenta:
 <br> ![Creacion cuenta AWS]()
 - Se pedirán datos como la región, el propósito de la cuenta, número celular y datos de facturación (Al igual que con **Google Cloud Platform** todo se trabaja sobre la capa gratuita y no se harán cobros a menos de que se utilicen servicios fuera de esta capa)
-### 4. Creación de la base de datos en el **Servicio de Base de Datos Relacional** de **AWS**.
+### 4. Creación de la base de datos en el **Servicio de Base de Datos Relacional** de **AWS**. 
+- En la consola de AWS, en la barra de búsqueda superior buscar **RDS**, el servicio de bases de datos relacionales y en el dashboard de este servicio, buscar la opción de **Crear una base de datos**
+<br> ![Creacion base de datos]()
+- Para las configuraciones de ésta base de datos los aspectos más importantes son los de seleccionar MySQL, en su versión community, puede ser la más actualizada, seleccionar los recursos de la capa gratuita y las credenciales de acceso
+- Seleccionar MySql (última versión) y capa gratuita
+<br> ![Creacion base de datos]()
+- Digitar las credenciales de acceso a la base de datos (Importante tener en cuenta el **usuario maestro** y la **contraseña maestra**)
+<br> ![Creacion base de datos]()
+- Importante seleccionar el **tipo de autenticación** en: (Autenticación con contraseña), la **conectividad VPC** en default y el **acceso público** activado
+- Para mayor información sobre la creación de ésta base de datos puede seguir [esta guía](https://aws.amazon.com/es/getting-started/hands-on/create-mysql-db/)
 ### 5. Actualización de las credenciales de la base de datos creada.
+- Una vez creada la base de datos, en el dashboard se encuentra la pestaña de conectividad y seguridad, se encuentran las demás credenciales necesarias para la conexión a la base de datos, que son el punto de enlace y el puerto de enlace, como lo muestra la siguiente imagen:
+<br> ![Creacion base de datos]()
+- En este sentido las credenciales que hay que tener en cuenta para conectar la base de datos a la aplicación son:
+ 
+| Nombre variable | Valor |
+| ------------- | ------------- |
+| DB_HOST  | Punto de enlace   |
+| DB_USER  | Usuario maestro    |
+| DB_PASS  | Contraseña maestra   |
+
+- Modificando el archivo [Deployment.yml](deployment.yml) con estos datos hará posible la conexión con la nueva base de datos creada.
+- Recordar que para el correcto funcionamiento de la aplicación es necesario crear una tabla con las columnas iduser, firstname, lastname, email en un cliente MySQL como lo puede ser [WorkBench](https://dev.mysql.com/downloads/workbench/)
