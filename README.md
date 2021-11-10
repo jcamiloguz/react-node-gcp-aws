@@ -53,7 +53,7 @@ A  continuación se presenta una guía paso a paso para llevar a cabo las siguie
 <br> ![Crear cuenta docker hub](screenshots/docker_signup.png) 
 - Una vez creada la cuenta tener en cuenta **(DOCKER ID)** y **(Password)**, estos valores se necesitarán para la creación de los **secrets**.
 ### 2. Creación de los **secrets** del proyecto en Github de las credenciales de Docker Hub.
-- Al igual que en el [punto 4](https://github.com/jcamiloguz/react-node-gcp-aws#4-creaci%C3%B3n-de-los-secrets-del-proyecto-en-github-de-las-credenciales-de-google-cloud-platform) de la guía anterior se repite el mismo proceso de acceder a **Settings** y a **Secrets** para crear dos nuevos secretos relacionados con las credenciales de docker, deben llevar los nombres: **DOCKER_USERNAME** y **DOCKER_PASSWORD, estos datos son resultado del punto anterior, igualmente puede tomar la siguiente tabla como gúia. 
+- Al igual que en el [punto 4](https://github.com/jcamiloguz/react-node-gcp-aws#4-creaci%C3%B3n-de-los-secrets-del-proyecto-en-github-de-las-credenciales-de-google-cloud-platform) de la guía anterior se repite el mismo proceso de acceder a **Settings** y a **Secrets** para crear dos nuevos secretos relacionados con las credenciales de docker, deben llevar los nombres: **DOCKER_USERNAME** y **DOCKER_PASSWORD**, estos datos son resultado del punto anterior, igualmente puede tomar la siguiente tabla como gúia. 
 
 | Nombre secret | Valor |
 | ------------- | ------------- |
@@ -65,7 +65,7 @@ A  continuación se presenta una guía paso a paso para llevar a cabo las siguie
 
 ### 3. Creación de la cuenta en **AWS**.
 - Este paso es similar al [punto 2](https://github.com/jcamiloguz/react-node-gcp-aws#2-crear-cuenta-en-google-cloud-platform-gcp) de la guía anterior, pero esta vez se creará una cuenta de capa gratuita accediendo a la [plataforma de Amazon Web Services](https://www.google.com/aclk?sa=L&ai=DChcSEwjEoeXxpo70AhVCsYYKHQbCDgMYABABGgJ2dQ&ae=2&sig=AOD64_2XCxJ0ut9nQFwPSdHuyIbp_1UHNw&q&adurl&ved=2ahUKEwjs-tzxpo70AhXiTDABHa3LA1UQ0Qx6BAgDEAE), al dar click sobre **crear una cuenta gratuita** se desplegará la siguiente interfaz para comenzar con la creación de la cuenta:
-<br> ![Creacion cuenta AWS](screenshots/AWS Signup.png)
+<br> ![Creacion cuenta AWS](screenshots/AWS_Signup.png)
 - Se pedirán datos como la región, el propósito de la cuenta, número celular y datos de facturación (Al igual que con **Google Cloud Platform** todo se trabaja sobre la capa gratuita y no se harán cobros a menos de que se utilicen servicios fuera de esta capa)
 ### 4. Creación de la base de datos en el **Servicio de Base de Datos Relacional** de **AWS**. 
 - En la consola de AWS, en la barra de búsqueda superior buscar **RDS**, el servicio de bases de datos relacionales y en el dashboard de este servicio, buscar la opción de **Crear una base de datos**
