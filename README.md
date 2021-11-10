@@ -1,8 +1,11 @@
-# Multi-Cloud application Google Cloud Platform & Amazon Web Services
+#☁☁ Multi-Cloud application Google Cloud Platform & Amazon Web Services ☁☁
 Este repositorio hace parte de la implementación de una aplicación web Multi-cloud basada en react.js y node.js, que utiliza los servicios de 
 [Google Cloud Platform (GCP)](https://console.cloud.google.com/getting-started) para desplegarse en la web y se conecta a una base de datos alojada en el Servicio 
 de base de datos relacional [(RDS)](https://aws.amazon.com/es/rds/) de [Amazon Web Services (AWS)](https://aws.amazon.com/es/) utilizando el motor de base de datos [MySQL](https://www.mysql.com/)
 y que por medio de [GitHub Actions](https://github.com/features/actions) actualiza, construye y lanza automaticamente la aplicación en producción.
+
+## 🖥 Presentación del proyecto final.
+Este trabajo corresponde a el proyecto final de la materia Computación en la nube de la Universidad Autónoma de Occidente en Santiago De Cali, Colombia. El cuál se ha sintetizado en [esta presentación](https://docs.google.com/presentation/d/1Ibupk21T4sjfhsxuZKfSIEtkHepSmieqi2aOwjoDo1M/edit?usp=sharing) para la socialización y sustentación final de este curso.
 ## 🟩Guía paso a paso para la reproducción de la solución.
 Para reproducir la solución se tienen que tener en cuenta los siguientes pasos.
 
@@ -19,6 +22,11 @@ Para reproducir la solución se tienen que tener en cuenta los siguientes pasos.
   <br> ![inicio de sesion en GCP](screenshots/GCP_login2.png)
 ### 3. Creación de Clúster utilizando Google Kubernetes Engine en **Google Cloud Platform**.
   - A continuación con el [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine) se crea un Clúster de tipo Load Balancer de Kubernetes que soportará la aplicación web montada.
+<br> ![Crear proyecto](screenshots/gcp_newproject.jpeg)
+  - Seleccionar Kubernetes Engine 
+<br> ![Crear proyecto](screenshots/kubernetes_engine.jpeg)
+  - Una vez creado se puede configurar el proyecto de kubernetes para acceder a sus credenciales y ajustes.
+<br> ![Crear proyecto](screenshots/config_project.jpeg)
 ### 4. Creación de los **secrets** del proyecto en GitHub de las credenciales de Google Cloud Platform.
   - En el aparatado de **Settings** o configuraciones del Fork que se creó en el [punto 1](https://github.com/jcamiloguz/react-node-gcp-aws#1-realizar-un-fork-al-repositorio-jcamiloguzreact-node-gcp-aws), en la pestaña de secrets, se pueden crear los secrets que actuarán como variables de entorno necesarias para crear la conexión de la aplicación con el Clúster de Kubernetes.
   <br> ![Creacion de secrets](screenshots/secrets.png)
@@ -42,7 +50,7 @@ A  continuación se presenta una guía paso a paso para llevar a cabo las siguie
 - Montaje base da datos propia de Amazon Web Services (AWS).
 ### 1. Creación de cuenta en Docker Hub.
 - Para esto se ingresa a [Docker Hub](https://hub.docker.com/) y en la pantalla principal está el formulario para crear una cuenta, ingresar el Docker ID, un correo electrónico y la contraseña
-<br> ![Crear cuenta docker hub](screenshots/) 
+<br> ![Crear cuenta docker hub](screenshots/docker_signup.png) 
 - Una vez creada la cuenta tener en cuenta **(DOCKER ID)** y **(Password)**, estos valores se necesitarán para la creación de los **secrets**.
 ### 2. Creación de los **secrets** del proyecto en Github de las credenciales de Docker Hub.
 - Al igual que en el [punto 4](https://github.com/jcamiloguz/react-node-gcp-aws#4-creaci%C3%B3n-de-los-secrets-del-proyecto-en-github-de-las-credenciales-de-google-cloud-platform) de la guía anterior se repite el mismo proceso de acceder a **Settings** y a **Secrets** para crear dos nuevos secretos relacionados con las credenciales de docker, deben llevar los nombres: **DOCKER_USERNAME** y **DOCKER_PASSWORD, estos datos son resultado del punto anterior, igualmente puede tomar la siguiente tabla como gúia. 
@@ -57,21 +65,21 @@ A  continuación se presenta una guía paso a paso para llevar a cabo las siguie
 
 ### 3. Creación de la cuenta en **AWS**.
 - Este paso es similar al [punto 2](https://github.com/jcamiloguz/react-node-gcp-aws#2-crear-cuenta-en-google-cloud-platform-gcp) de la guía anterior, pero esta vez se creará una cuenta de capa gratuita accediendo a la [plataforma de Amazon Web Services](https://www.google.com/aclk?sa=L&ai=DChcSEwjEoeXxpo70AhVCsYYKHQbCDgMYABABGgJ2dQ&ae=2&sig=AOD64_2XCxJ0ut9nQFwPSdHuyIbp_1UHNw&q&adurl&ved=2ahUKEwjs-tzxpo70AhXiTDABHa3LA1UQ0Qx6BAgDEAE), al dar click sobre **crear una cuenta gratuita** se desplegará la siguiente interfaz para comenzar con la creación de la cuenta:
-<br> ![Creacion cuenta AWS]()
+<br> ![Creacion cuenta AWS](screenshots/AWS Signup.png)
 - Se pedirán datos como la región, el propósito de la cuenta, número celular y datos de facturación (Al igual que con **Google Cloud Platform** todo se trabaja sobre la capa gratuita y no se harán cobros a menos de que se utilicen servicios fuera de esta capa)
 ### 4. Creación de la base de datos en el **Servicio de Base de Datos Relacional** de **AWS**. 
 - En la consola de AWS, en la barra de búsqueda superior buscar **RDS**, el servicio de bases de datos relacionales y en el dashboard de este servicio, buscar la opción de **Crear una base de datos**
-<br> ![Creacion base de datos]()
+<br> ![Creacion base de datos](screenshots/rds_create.png)
 - Para las configuraciones de ésta base de datos los aspectos más importantes son los de seleccionar MySQL, en su versión community, puede ser la más actualizada, seleccionar los recursos de la capa gratuita y las credenciales de acceso
 - Seleccionar MySql (última versión) y capa gratuita
-<br> ![Creacion base de datos]()
+<br> ![Creacion base de datos](screenshots/mysql.png)
 - Digitar las credenciales de acceso a la base de datos (Importante tener en cuenta el **usuario maestro** y la **contraseña maestra**)
-<br> ![Creacion base de datos]()
+<br> ![Creacion base de datos](screenshots/credenciales.png)
 - Importante seleccionar el **tipo de autenticación** en: (Autenticación con contraseña), la **conectividad VPC** en default y el **acceso público** activado
 - Para mayor información sobre la creación de ésta base de datos puede seguir [esta guía](https://aws.amazon.com/es/getting-started/hands-on/create-mysql-db/)
 ### 5. Actualización de las credenciales de la base de datos creada.
 - Una vez creada la base de datos, en el dashboard se encuentra la pestaña de conectividad y seguridad, se encuentran las demás credenciales necesarias para la conexión a la base de datos, que son el punto de enlace y el puerto de enlace, como lo muestra la siguiente imagen:
-<br> ![Creacion base de datos]()
+<br> ![Credenciales base de datos](screenshots/conectividad_db.png)
 - En este sentido las credenciales que hay que tener en cuenta para conectar la base de datos a la aplicación son:
  
 | Nombre variable | Valor |
