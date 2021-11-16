@@ -2,7 +2,7 @@ on: [push]
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  REGISTRY_NAME: react-node-container
+  REGISTRY_NAME: reactnodecontainer
   CLUSTER_NAME: react-node
   CLUSTER_RESOURCE_GROUP: cloud_computing
   NAMESPACE: default
