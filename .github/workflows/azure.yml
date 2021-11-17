@@ -7,7 +7,7 @@ env:
   CLUSTER_RESOURCE_GROUP: cloud_computing
   NAMESPACE: default
   APP_NAME: react-node
-  
+  SECRET: react-node
 jobs:
   build:
     runs-on: ubuntu-latest
