@@ -18,7 +18,7 @@ spec:
         app: react-webapp
     spec:
       containers:
-      - image: gcr.io/PROJECT_ID/IMAGE:TAG
+      - image: reactnodecontainer.azurecr.io/react-node
         name: webapp
         imagePullPolicy: Always
         resources: {}
