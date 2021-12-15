@@ -1,4 +1,4 @@
-# ☁☁ Multi-Cloud application Google Cloud Platform & Amazon Web Services ☁☁
+# ☁☁ Multi-Cloud applications Google Cloud Platform & Amazon Web Services ☁☁
 Este repositorio hace parte de la implementación de una aplicación web Multi-cloud basada en react.js y node.js, que utiliza los servicios de 
 [Google Cloud Platform (GCP)](https://console.cloud.google.com/getting-started) para desplegarse en la web y se conecta a una base de datos alojada en el Servicio 
 de base de datos relacional [(RDS)](https://aws.amazon.com/es/rds/) de [Amazon Web Services (AWS)](https://aws.amazon.com/es/) utilizando el motor de base de datos [MySQL](https://www.mysql.com/)
